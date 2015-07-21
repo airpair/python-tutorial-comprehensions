@@ -45,7 +45,7 @@ These are the maximum form expressions. Their full complexity is illustrated by 
 
 `{keyFun(key): valFun(val) for key,val in iterable.items() if valid(key,val)}`
 
-**Tuple generator (generation on demand):**
+**Generator expression (generation on demand):**
 
 `(transform(datum) for datum in iterable if valid(datum))`
 
@@ -240,7 +240,7 @@ Here is a function which fully exposes the use of a dictionary comprehension. If
 
 <!--code lang=python linenums=true-->
 
-    def dictionaryComprehension(source, keyTransform, valueTransform, conditional):
+    def dictionaryComprehension(source, keyTransform, valueTransform, conditional=lambda x: True):
         """
         Canonical use of a dictionary comprehension produces a completely generated
         dictionary of key:value pairs derived from elements in a source container
@@ -272,9 +272,9 @@ Here is a function which fully exposes the use of a generator expressions. If th
 
 <!--code lang=python linenums=true-->
 
-    def tupleGenerator(source, transform, conditional=lambda x: True):
+    def generatorExpression(source, transform, conditional=lambda x: True):
         """
-        Canonical use of a tuple generator produces
+        Canonical use of a generator expression produces
         values derived from elements in a source iterable for
         elements that obey a condition.
         This is useful for handling data too large to fit into memory.
@@ -285,7 +285,7 @@ Here is a function which fully exposes the use of a generator expressions. If th
                 if conditional(element)  # for elements meeting a condition.
                )
 
-Tuple generators "yield" one data element for each request.
+Generator expressions "yield" one data element for each request.
 They do not validate or transform source data until a request for an element is made.
 
 <!--code lang=python linenums=true-->
