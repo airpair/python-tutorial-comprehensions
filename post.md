@@ -24,7 +24,7 @@ but this sequence of steps is so common that Python has a special syntax for per
 * In Archetypes you will learn what the basic pattern is.
 * In Defaults you will learn shortcuts.
 * In Advantages you will learn how complexity is reduced.
-* In Examples you will learn see a variety of use cases.
+* In Examples you will see a variety of use cases.
 * In References you will see some other resources to study.
 
 >  The difference between a comprehension and a generator is important for efficiency. A comprehension fully populates its container when it is executed with all the memory consumption required to hold the container and all its contents. A generator does not populate its container, but generates one item each time a value is requested from the object. _(From the [Python wiki](https://wiki.python.org/moin/Generators))_
@@ -266,13 +266,13 @@ Here is a demonstration of building a dictionary assigning random number to peop
 
     Test6()
 
-### 5.6 Tuple generator
+### 5.6 Generator expression
 
-Here is a function which fully exposes the use of a tuple generator. If the conditional argument is absent, it is assumed to yield True. The generator syntax resembles the list comprehension syntax:
+Here is a function which fully exposes the use of a generator expressions. If the conditional argument is absent, it is assumed to yield True. The generator syntax resembles the list comprehension syntax:
 
 <!--code lang=python linenums=true-->
 
-    def tupleGenerator(source, transform, conditional):
+    def tupleGenerator(source, transform, conditional=lambda x: True):
         """
         Canonical use of a tuple generator produces
         values derived from elements in a source iterable for
