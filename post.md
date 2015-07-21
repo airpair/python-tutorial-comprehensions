@@ -176,7 +176,7 @@ Here is a function which fully exposes the use of a list comprehension. If the c
 
 <!--code lang=python linenums=true-->
 
-    def listComprehension(source, transform, conditional):
+    def listComprehension(source, transform, conditional=lambda x: True):
         """
         Canonical use of a list comprehension produces a completely generated
         list of values derived from elements in a source container
